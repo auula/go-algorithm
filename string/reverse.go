@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	reverseString("Hello Golang")
+	reverseString("您好啊")
 }
 
 func reverseString(str string) {
