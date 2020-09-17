@@ -25,9 +25,10 @@ func isAnagram(str1, str2 string) bool {
 	counter := [26]int{} // 底层模拟出来了一个26字母表
 	for i := 0; i < len(str1); i++ {
 		// 把第一个字符串里面的字符出现的标记位加1
-		counter[str1[i]-'a']++
+		counter[str1[i]-97]++
 		// 把第二个字符串里面的字符出现的标记减1 这样就达到了检测2个字符串的字符是否都一样效果
-		counter[str2[i]-'a']--
+		// unicode编码
+		counter[str2[i]-97]--
 	}
 	for _, j := range counter {
 		if j != 0 {
