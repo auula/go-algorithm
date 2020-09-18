@@ -67,6 +67,25 @@ func (l *linkedList) get(index int) int {
 	return node.Value
 }
 
+func (l *linkedList) update(index, value int) {
+	node := l.Head
+	for i := 0; i < index; i++ {
+		node = node.NextNode
+	}
+	node.Value = value
+}
+
+func (l *linkedList) insert(index, value int) {
+	node := l.Head
+	// 减一是因为指针移动是要插入的位置 如果要插入到这个位置所有就是修改前面的nextNode
+	for i := 0; i < index-1; i++ {
+		node = node.NextNode
+	}
+	temp := node.NextNode
+	node.NextNode = &singleNode{Value: value, NextNode: temp}
+	l.Length++
+}
+
 func main() {
 	list := create()
 	list.append(1)
@@ -80,4 +99,17 @@ func main() {
 	list.allElement()
 	fmt.Println(list.Length)
 	fmt.Println(list.get(4))
+	list.update(4, 66)
+	fmt.Println(list.get(4))
+	list.insert(3, 22)
+	list.allElement()
+	fmt.Println(list.Length)
 }
+
+//5
+//0->1->2->3->4->5->
+//0->1->2->3->5->
+//4
+//5
+//66
+//0->1->22->2->3->66->
