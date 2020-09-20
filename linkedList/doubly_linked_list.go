@@ -33,25 +33,26 @@ func NewNode(v interface{}) *node {
 	return &node{value: v}
 }
 
-func createDoubly() *doublyList {
-	return &doublyList{}
+func createDoublyList() *doublyList {
+	d := new(doublyList)
+	n := new(node)
+	d.head = n
+	d.tail = n
+	d.length = 0
+	return d
 }
 
 func (d *doublyList) RPush(v interface{}) {
 	// 链表未空的时候 创建链表
-	head := d.head
-	if head == nil {
-		newNode := NewNode("this is hard node. ROOT node")
-		d.head = newNode
-		d.tail = newNode
-		d.length++
-	}
-	for head != nil {
-		head = head.next
-	}
+	//fmt.Printf("%p \n",node)
+	//for node.next != nil {
+	//	// 啥也不做 就移动指针
+	//	node = node.next
+	//
+	node := d.tail //直接拿到最后一个 减低时间复杂度
 	newNode := NewNode(v)
-	newNode.per = d.tail
-	head.next = newNode
+	newNode.per = node
+	node.next = newNode // 一定是next 不然修改的只是指针移动的每个元素项
 	d.tail = newNode
 	d.length++
 }
@@ -65,12 +66,15 @@ func (d *doublyList) getNode(index int) *node {
 }
 
 func main() {
-	doubly := createDoubly()
+	doubly := createDoublyList()
 	doubly.RPush("C++")
 	doubly.RPush("Java")
 	doubly.RPush("Golang")
 	fmt.Println(doubly.length)
-	fmt.Println("头节点是:", doubly.head)
+	fmt.Printf("头节点是:%p\n", doubly.head)
 	fmt.Println("尾节点是:", doubly.tail)
-	fmt.Println(doubly.getNode(3))
+	fmt.Println(doubly.getNode(3).value)
+	fmt.Println(doubly.getNode(1).value)
+	fmt.Printf("头节点是:%p\n", doubly.head)
+	fmt.Println("尾节点是:", doubly.tail)
 }
