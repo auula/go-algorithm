@@ -86,6 +86,26 @@ func (l *linkedList) insert(index, value int) {
 	l.Length++
 }
 
+func (l *linkedList) preAppend(value int) {
+	s := &singleNode{Value: value, NextNode: l.Head.NextNode}
+	l.Head.NextNode = s // 换到第一个位置
+	l.Length++
+}
+
+// 返回元素第一次出现的位置
+func (l *linkedList) indexOf(value int) uint {
+	node := l.Head
+	count := 0
+	for node != nil {
+		if node.Value == value {
+			return uint(count)
+		}
+		count++
+		node = node.NextNode
+	}
+	return 0
+}
+
 func main() {
 	list := create()
 	list.append(1)
@@ -102,8 +122,11 @@ func main() {
 	list.update(4, 66)
 	fmt.Println(list.get(4))
 	list.insert(3, 22)
+	list.preAppend(111)
+	list.preAppend(11)
 	list.allElement()
 	fmt.Println(list.Length)
+	fmt.Println("11元素的下标是:", list.indexOf(11))
 }
 
 //5
