@@ -57,6 +57,34 @@ func (d *doublyList) RPush(v interface{}) {
 	d.length++
 }
 
+func (d *doublyList) insert(index int, v interface{}) {
+	node := d.head
+	for i := 0; i < index-1; i++ {
+		node = node.next
+	}
+	//afterNode := nil
+	newNode := NewNode(v)    //创建新节点
+	newNode.per = node       //把新节点的per指向 前一个节点
+	newNode.next = node.next // 新节点的next指向 前一个节点的next next就是插入之前的那个节点后面那个节点
+	node.next = newNode      // 把旧节点的next指针跟换成下新节点
+	d.tail = newNode         //更新尾节点
+	d.length++
+}
+
+func (d *doublyList) remove(index int) {
+	node := d.head
+	for i := 0; i < index-1; i++ {
+		node = node.next
+	}
+	if d.tail == node.next { //防止删除尾节点
+		return
+	}
+	next := node.next.next
+	next.per = node
+	node.next = next
+	d.length--
+}
+
 func (d *doublyList) getNode(index int) *node {
 	node := d.head
 	for i := 0; i < index; i++ {
@@ -77,4 +105,10 @@ func main() {
 	fmt.Println(doubly.getNode(1).value)
 	fmt.Printf("头节点是:%p\n", doubly.head)
 	fmt.Println("尾节点是:", doubly.tail)
+	doubly.insert(4, "Python")
+	fmt.Println(doubly.getNode(4).value)
+	fmt.Println(doubly)
+	fmt.Println("尾节点是:", doubly.tail)
+	doubly.remove(2) // 删除Java
+	fmt.Println(doubly.getNode(2).value)
 }
