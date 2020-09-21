@@ -59,6 +59,15 @@ func (d *doublyList) RPush(v interface{}) {
 	d.length++
 }
 
+func (d *doublyList) LPush(v interface{}) {
+	firstNode := d.head.next
+	newNode := NewNode(v)
+	newNode.per = d.head     // 右边插入 都是指向头
+	newNode.next = firstNode // 之前的第一个
+	d.head.next = newNode
+	d.length++
+}
+
 func (d *doublyList) insert(index int, v interface{}) {
 	node := d.head
 	for i := 0; i < index-1; i++ {
@@ -99,6 +108,8 @@ func main() {
 	doubly.RPush("C++")
 	doubly.RPush("Java")
 	doubly.RPush("Golang")
+	doubly.LPush("C")
+	doubly.LPush("B")
 	fmt.Println(doubly.length)
 	fmt.Printf("头节点是:%p\n", doubly.head)
 	fmt.Println("尾节点是:", doubly.tail)
@@ -112,4 +123,5 @@ func main() {
 	fmt.Println("尾节点是:", doubly.tail)
 	//doubly.remove(2) // 删除Java
 	fmt.Println(doubly.getNode(2).value)
+	fmt.Println(doubly.getNode(1).value)
 }
