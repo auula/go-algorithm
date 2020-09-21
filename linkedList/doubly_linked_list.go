@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// 查询比较多就用顺序表
+// 增删比较的多就用链表
 // 双向链表实现
 // doubly linked list
 
@@ -67,7 +69,6 @@ func (d *doublyList) insert(index int, v interface{}) {
 	newNode.per = node       //把新节点的per指向 前一个节点
 	newNode.next = node.next // 新节点的next指向 前一个节点的next next就是插入之前的那个节点后面那个节点
 	node.next = newNode      // 把旧节点的next指针跟换成下新节点
-	d.tail = newNode         //更新尾节点
 	d.length++
 }
 
@@ -105,10 +106,10 @@ func main() {
 	fmt.Println(doubly.getNode(1).value)
 	fmt.Printf("头节点是:%p\n", doubly.head)
 	fmt.Println("尾节点是:", doubly.tail)
-	doubly.insert(4, "Python")
+	doubly.insert(2, "Python")
 	fmt.Println(doubly.getNode(4).value)
 	fmt.Println(doubly)
 	fmt.Println("尾节点是:", doubly.tail)
-	doubly.remove(2) // 删除Java
+	//doubly.remove(2) // 删除Java
 	fmt.Println(doubly.getNode(2).value)
 }
