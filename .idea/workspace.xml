@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83b04bbc-9cac-430c-b49f-be8454e43dc9" name="Default Changelist" comment="add doubly_linked_list.go">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linkedList/doubly_linked_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedList/doubly_linked_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linkedList/single_list_node.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedList/single_list_node.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +61,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Go Build.go build doubly_linked_list.go">
+  <component name="RunManager" selected="Go Build.go build single_list_node.go">
     <configuration name="go build anagram.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-algorithm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -102,8 +104,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build doubly_linked_list.go" />
         <item itemvalue="Go Build.go build single_list_node.go" />
+        <item itemvalue="Go Build.go build doubly_linked_list.go" />
         <item itemvalue="Go Build.go build study.go" />
         <item itemvalue="Go Build.go build anagram.go" />
         <item itemvalue="Go Build.go build reverse.go" />
@@ -134,22 +136,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="add doubly_linked_list.go" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1433" height="247" key="GridCell.Tab.0.bottom" timestamp="1600611689689">
+    <state width="1388" height="208" key="GridCell.Tab.0.bottom" timestamp="1600854152536">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1433" height="247" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1600611689689" />
-    <state width="1433" height="247" key="GridCell.Tab.0.center" timestamp="1600611689689">
+    <state width="1388" height="208" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
+    <state width="1388" height="208" key="GridCell.Tab.0.center" timestamp="1600854152536">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1433" height="247" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1600611689689" />
-    <state width="1433" height="247" key="GridCell.Tab.0.left" timestamp="1600611689689">
+    <state width="1388" height="208" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
+    <state width="1388" height="208" key="GridCell.Tab.0.left" timestamp="1600854152535">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1433" height="247" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1600611689689" />
-    <state width="1433" height="247" key="GridCell.Tab.0.right" timestamp="1600611689689">
+    <state width="1388" height="208" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152535" />
+    <state width="1388" height="208" key="GridCell.Tab.0.right" timestamp="1600854152536">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1433" height="247" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1600611689689" />
+    <state width="1388" height="208" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
     <state width="2007" height="377" key="GridCell.Tab.1.bottom" timestamp="1600350352495">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -170,13 +172,13 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="853" y="223" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1600303501931" />
-    <state x="835" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600607897954">
+    <state x="835" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600684862899">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="835" y="252" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1600607897954" />
-    <state x="960" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1600609088797">
+    <state x="835" y="252" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1600684862899" />
+    <state x="960" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1600686009229">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="960" y="258" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1600609088797" />
+    <state x="960" y="258" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1600686009229" />
   </component>
 </project>

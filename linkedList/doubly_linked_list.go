@@ -103,6 +103,12 @@ func (d *doublyList) getNode(index int) *node {
 	return node
 }
 
+func (d *doublyList) allElement() {
+	for node := d.head.next; node != nil; node = node.next {
+		fmt.Print(node.value, "->")
+	}
+	fmt.Println()
+}
 func main() {
 	doubly := createDoublyList()
 	doubly.RPush("C++")
@@ -124,4 +130,5 @@ func main() {
 	//doubly.remove(2) // 删除Java
 	fmt.Println(doubly.getNode(2).value)
 	fmt.Println(doubly.getNode(1).value)
+	doubly.allElement()
 }

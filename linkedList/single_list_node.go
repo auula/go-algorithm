@@ -53,7 +53,7 @@ func (l *linkedList) remove(index int) {
 }
 
 func (l *linkedList) allElement() {
-	for node := l.Head; node != nil; node = node.NextNode {
+	for node := l.Head.NextNode; node != nil; node = node.NextNode {
 		fmt.Print(node.Value, "->")
 	}
 	fmt.Println()
@@ -106,6 +106,28 @@ func (l *linkedList) indexOf(value int) uint {
 	return 0
 }
 
+// 反转条件：
+// 1. 想要转换就是要最底3个元素
+// 2. 定义一个框
+// 3. 每次一点3个元素
+func (l *linkedList) reverse() {
+	l.Head.NextNode = func(head *singleNode) *singleNode {
+		if head == nil {
+			return nil
+		}
+		var prevNode *singleNode
+		var nextNode *singleNode
+		curr := head.NextNode
+		for curr != nil {
+			nextNode = curr.NextNode // 下一个需要交换的元素
+			curr.NextNode = prevNode // 反转指针指向前面一个元素
+			prevNode = curr          // 下一个需要交换的元素的next指向目前这一个node
+			curr = nextNode          // 下次循环的元素指针
+		}
+		return prevNode
+	}(l.Head)
+}
+
 func main() {
 	list := create()
 	list.append(1)
@@ -127,6 +149,10 @@ func main() {
 	list.allElement()
 	fmt.Println(list.Length)
 	fmt.Println("11元素的下标是:", list.indexOf(11))
+	fmt.Println(list.Head)
+	list.reverse()
+	list.allElement()
+	fmt.Println(list)
 }
 
 //5
