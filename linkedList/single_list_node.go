@@ -67,7 +67,7 @@ func (l *linkedList) get(index int) *singleNode {
 	return node
 }
 
-func (l *linkedList) update(index, value int) {
+func (l *linkedList) upData(index, value int) {
 	node := l.Head
 	for i := 0; i < index; i++ {
 		node = node.NextNode
@@ -164,7 +164,7 @@ func main() {
 	list.allElement()
 	fmt.Println(list.Length)
 	fmt.Println(list.get(4))
-	list.update(4, 66)
+	list.upData(4, 66)
 	fmt.Println(list.get(4))
 	list.insert(3, 22)
 	list.insert(3, 9999)
