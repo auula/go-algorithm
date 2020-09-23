@@ -59,12 +59,12 @@ func (l *linkedList) allElement() {
 	fmt.Println()
 }
 
-func (l *linkedList) get(index int) int {
+func (l *linkedList) get(index int) *singleNode {
 	node := l.Head
 	for i := 0; i < index; i++ {
 		node = node.NextNode
 	}
-	return node.Value
+	return node
 }
 
 func (l *linkedList) update(index, value int) {
@@ -128,6 +128,29 @@ func (l *linkedList) reverse() {
 	}(l.Head)
 }
 
+// 快慢指针
+func (l *linkedList) medianValue() *singleNode {
+	slow, fast := l.Head, l.Head
+	for fast != nil && fast.NextNode != nil {
+		fast = fast.NextNode.NextNode
+		slow = slow.NextNode
+	}
+	return slow
+}
+
+// 检查是否有环
+func (l *linkedList) isLoop() bool {
+	slow, fast := l.Head, l.Head
+	for fast != nil && fast.NextNode != nil {
+		fast = fast.NextNode.NextNode
+		slow = slow.NextNode
+		if fast == slow {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	list := create()
 	list.append(1)
@@ -144,15 +167,20 @@ func main() {
 	list.update(4, 66)
 	fmt.Println(list.get(4))
 	list.insert(3, 22)
+	list.insert(3, 9999)
 	list.preAppend(111)
 	list.preAppend(11)
 	list.allElement()
+
 	fmt.Println(list.Length)
 	fmt.Println("11元素的下标是:", list.indexOf(11))
 	fmt.Println(list.Head)
 	list.reverse()
 	list.allElement()
 	fmt.Println(list)
+	fmt.Println(list.medianValue().Value)
+	list.get(4).NextNode = list.get(3)
+	fmt.Println("当前是否为环表:", list.isLoop())
 }
 
 //5

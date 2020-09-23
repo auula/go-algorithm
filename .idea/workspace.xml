@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83b04bbc-9cac-430c-b49f-be8454e43dc9" name="Default Changelist" comment="add doubly_linked_list.go">
+    <list default="true" id="83b04bbc-9cac-430c-b49f-be8454e43dc9" name="Default Changelist" comment="add doubly_linked_list.go of reverse linkedList function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkedList/doubly_linked_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedList/doubly_linked_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linkedList/single_list_node.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedList/single_list_node.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,25 +132,26 @@
     <MESSAGE value="reverse string." />
     <MESSAGE value="add single linked list." />
     <MESSAGE value="add doubly_linked_list.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="add doubly_linked_list.go" />
+    <MESSAGE value="add doubly_linked_list.go of reverse linkedList function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add doubly_linked_list.go of reverse linkedList function" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1388" height="208" key="GridCell.Tab.0.bottom" timestamp="1600854152536">
+    <state width="966" height="133" key="GridCell.Tab.0.bottom" timestamp="1600861074811">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1388" height="208" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
-    <state width="1388" height="208" key="GridCell.Tab.0.center" timestamp="1600854152536">
+    <state width="966" height="133" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1600861074811" />
+    <state width="966" height="133" key="GridCell.Tab.0.center" timestamp="1600861074811">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1388" height="208" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
-    <state width="1388" height="208" key="GridCell.Tab.0.left" timestamp="1600854152535">
+    <state width="966" height="133" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1600861074811" />
+    <state width="966" height="133" key="GridCell.Tab.0.left" timestamp="1600861074811">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1388" height="208" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152535" />
-    <state width="1388" height="208" key="GridCell.Tab.0.right" timestamp="1600854152536">
+    <state width="966" height="133" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1600861074811" />
+    <state width="966" height="133" key="GridCell.Tab.0.right" timestamp="1600861074811">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1388" height="208" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1600854152536" />
+    <state width="966" height="133" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1600861074811" />
     <state width="2007" height="377" key="GridCell.Tab.1.bottom" timestamp="1600350352495">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -172,10 +172,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="853" y="223" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1600303501931" />
-    <state x="835" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600684862899">
+    <state x="835" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600854557065">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="835" y="252" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1600684862899" />
+    <state x="835" y="252" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1600854557065" />
     <state x="960" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1600686009229">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
