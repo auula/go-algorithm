@@ -151,6 +151,27 @@ func (l *linkedList) isLoop() bool {
 	return false
 }
 
+func (l *linkedList) loopEntrance() *singleNode {
+	slow, fast := l.Head, l.Head
+	var temp *singleNode
+	for fast != nil && fast.NextNode != nil {
+		slow = slow.NextNode
+		fast = fast.NextNode.NextNode // 这个是控制循环的
+		if fast == slow {
+			temp = l.Head // 把零时指针指向链表头部
+			continue      // 跳出本次循环
+		}
+		if temp != nil { // 不相等就说明继续循环
+			temp = temp.NextNode
+			if temp == slow { // 入口找到了
+				break
+			}
+		}
+
+	}
+	return temp
+}
+
 func main() {
 	list := create()
 	list.append(1)
@@ -181,6 +202,7 @@ func main() {
 	fmt.Println(list.medianValue().Value)
 	list.get(4).NextNode = list.get(3)
 	fmt.Println("当前是否为环表:", list.isLoop())
+	fmt.Println("当前环的入口是:", list.loopEntrance().Value)
 }
 
 //5
