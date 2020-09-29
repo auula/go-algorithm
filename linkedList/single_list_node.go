@@ -112,6 +112,7 @@ func (l *linkedList) indexOf(value int) uint {
 // 3. 每次一点3个元素
 func (l *linkedList) reverse() {
 	l.Head.NextNode = func(head *singleNode) *singleNode {
+		//head.Next, head, prev = prev, head.Next, head
 		if head == nil {
 			return nil
 		}
@@ -154,22 +155,22 @@ func (l *linkedList) isLoop() bool {
 func (l *linkedList) loopEntrance() *singleNode {
 	slow, fast := l.Head, l.Head
 	var temp *singleNode
-	for fast != nil && fast.NextNode != nil {
+	for {
+		fast = fast.NextNode.NextNode
 		slow = slow.NextNode
-		fast = fast.NextNode.NextNode // 这个是控制循环的
 		if fast == slow {
-			temp = l.Head // 把零时指针指向链表头部
-			continue      // 跳出本次循环
+			break
 		}
-		if temp != nil { // 不相等就说明继续循环
-			temp = temp.NextNode
-			if temp == slow { // 入口找到了
-				break
-			}
-		}
-
 	}
-	return temp
+	if fast == nil || fast.NextNode == nil {
+		return nil
+	}
+	temp = l.Head
+	for temp != slow {
+		temp = temp.NextNode
+		slow = slow.NextNode
+	}
+	return slow
 }
 
 func main() {
