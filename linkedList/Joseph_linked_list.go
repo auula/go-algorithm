@@ -51,19 +51,20 @@ func (jl *JosepList) allPrint() {
 func (jl *JosepList) suicide() {
 	count := 0
 	var before *JosephNode
-	for node := jl.head; node != node.next; {
+	node := jl.head.next
+	for node != node.next { // 因为是环表 尾巴指向头 然后直到最后自己指向自己结束
 		count++
 		if count == 3 {
 			before.next = node.next
-			fmt.Print("kill->", node.value, ",")
+			fmt.Print(node.value, ",")
 			count = 0
 			node = node.next
 		} else {
-			before = node
+			before = node // 暂存前一个节点 方便后面遇到3使用
 			node = node.next
 		}
-
 	}
+	fmt.Println(node.value)
 }
 
 func main() {
