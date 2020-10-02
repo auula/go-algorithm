@@ -36,14 +36,16 @@ func (s *Stack) pop() interface{} {
 	return node.Value
 }
 
-func BracketMatching(v []rune, symbol []rune) bool {
+func bracketMatching(v []rune, symbol []rune) bool {
 	stack := NewStack()
 	for _, r := range v {
 		if r == symbol[0] {
 			stack.push(symbol[0])
 		}
 		if r == symbol[1] {
-			stack.pop()
+			if stack.pop() == nil {
+				return false
+			}
 		}
 	}
 	return stack.pop() == nil
@@ -66,8 +68,10 @@ func main() {
 
 	//testStr := "(上海)(YNN)"
 	//testStr2 := "(上海(YNN)"
-	testStr3 := "上海(闵行区(吴泾镇))"
+	testStr3 := "(上海(闵行区)(吴泾镇))"
+	//testStr4 := `Hello World`
 	runes := []rune(testStr3)
 	symbol := []rune("()")
-	fmt.Println(BracketMatching(runes, symbol))
+	//symbol := []rune(`""`)
+	fmt.Println(bracketMatching(runes, symbol))
 }
