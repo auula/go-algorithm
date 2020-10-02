@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 // 通过链表实现栈
 
@@ -51,6 +54,53 @@ func bracketMatching(v []rune, symbol []rune) bool {
 	return stack.pop() == nil
 }
 
+func ReversePolishNotation(str []string) int64 {
+	stack := NewStack()
+	for _, s := range str {
+		var result, o1, o2 int64
+		switch s {
+		case "+":
+			o2, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O2", o2)
+			o1, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O1", o1)
+			result = o1 + o2
+			stack.push(strconv.Itoa(int(result)))
+		case "-":
+			o2, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O2", o2)
+			o1, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O1", o1)
+			result = o1 - o2
+			stack.push(strconv.Itoa(int(result)))
+		case "*":
+			o2, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O2", o2)
+			o1, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O1", o1)
+			result = o1 * o2
+			stack.push(strconv.Itoa(int(result)))
+		case "/":
+			o2, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O2", o2)
+			o1, _ = strconv.ParseInt(stack.pop().(string), 10, 64)
+			fmt.Println("O1", o1)
+			result = o1 / o2
+			stack.push(strconv.Itoa(int(result)))
+		default:
+			stack.push(s)
+		}
+
+	}
+
+	parseInt, err := strconv.ParseInt(stack.pop().(string), 10, 64)
+	if err != nil {
+		panic(err)
+	}
+
+	return parseInt
+}
+
 func main() {
 	stack := NewStack()
 	stack.push("0")
@@ -74,4 +124,6 @@ func main() {
 	symbol := []rune("()")
 	//symbol := []rune(`""`)
 	fmt.Println(bracketMatching(runes, symbol))
+	str := []string{"3", "17", "15", "-", "*", "18", "6", "/", "+"}
+	fmt.Println(ReversePolishNotation(str))
 }
