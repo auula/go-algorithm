@@ -39,7 +39,15 @@ func (t *SymbolTable) put(key, value interface{}) {
 }
 
 func (t *SymbolTable) remove(key interface{}) {
+	var prevNode *SymbolNode
+	node := t.Head
+	for node != nil {
+		prevNode = node
+		node = node.Next
+		if node.Key == key {
 
+		}
+	}
 }
 
 func (t *SymbolTable) get(key interface{}) *SymbolNode {
