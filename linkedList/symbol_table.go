@@ -39,13 +39,13 @@ func (t *SymbolTable) put(key, value interface{}) {
 }
 
 func (t *SymbolTable) remove(key interface{}) {
-	var prevNode *SymbolNode
 	node := t.Head
-	for node != nil {
-		prevNode = node
+	// 循环遍历表 检测每个节点的key是否匹配
+	for node.Next != nil {
 		node = node.Next
 		if node.Key == key {
-
+			// 如果匹配就删除 删除动作就是吧头部节点下一个节点指向删除节点的下一个节点
+			t.Head.Next = node.Next
 		}
 	}
 }
@@ -64,5 +64,9 @@ func main() {
 	table.put("k1", "v1")
 	fmt.Println(table.get("k1"))
 	table.put("k1", "v11")
+	table.put("k2", 2)
+	fmt.Println(table.get("k1"))
+	fmt.Println(table.get("k2"))
+	table.remove("k2")
 	fmt.Println(table.get("k1"))
 }
