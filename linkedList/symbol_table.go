@@ -46,6 +46,8 @@ func (t *SymbolTable) remove(key interface{}) {
 		if node.Key == key {
 			// 如果匹配就删除 删除动作就是吧头部节点下一个节点指向删除节点的下一个节点
 			t.Head.Next = node.Next
+			t.Size--
+			return
 		}
 	}
 }
