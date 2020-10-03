@@ -56,4 +56,5 @@ func main() {
 	fmt.Println(queue.pop().Value)
 	fmt.Println(queue.pop().Value)
 	fmt.Println(queue.pop())
+
 }
