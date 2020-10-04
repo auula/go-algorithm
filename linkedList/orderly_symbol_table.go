@@ -47,12 +47,27 @@ func (t *OrderlySymbolTable) PutByOrderlyKey(key StandardKey, value interface{})
 	t.Size++
 }
 
+func (t *OrderlySymbolTable) Get(key StandardKey) *OrderlySymbolNode {
+	curr := t.Head
+	for curr.Next != nil {
+		curr = curr.Next
+		if curr.K == key {
+			return curr
+		}
+	}
+	return nil
+}
+
 // Orderly symbol table
 func main() {
 	symbolTable := NewOrderlySymbolTable()
-	fmt.Println(symbolTable.Size)
+
 	symbolTable.PutByOrderlyKey(&Key{value: 1}, "v1")
-	symbolTable.PutByOrderlyKey(&Key{value: 3}, "v3")
+	k := &Key{value: 3}
+	symbolTable.PutByOrderlyKey(k, "v3")
+	symbolTable.PutByOrderlyKey(k, "v33")
+	fmt.Println(symbolTable.Size)
+	fmt.Println(symbolTable.Get(k))
 }
 
 // OrderlySymbolNode is Node
