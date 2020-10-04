@@ -8,17 +8,20 @@ package main
 import "fmt"
 
 // 符号表实现
+
+// SymbolNode is Node
 type SymbolNode struct {
 	Key, Value interface{}
 	Next       *SymbolNode
 }
 
+// SymbolTable is Symbol Table
 type SymbolTable struct {
 	Head *SymbolNode
 	Size int
 }
 
-func NewSymbolTable() *SymbolTable {
+func newSymbolTable() *SymbolTable {
 	return &SymbolTable{Head: &SymbolNode{Value: nil, Key: nil, Next: nil}, Size: 0}
 }
 
@@ -62,13 +65,13 @@ func (t *SymbolTable) get(key interface{}) *SymbolNode {
 }
 
 func main() {
-	table := NewSymbolTable()
+	table := newSymbolTable()
 	table.put("k1", "v1")
 	fmt.Println(table.get("k1"))
 	table.put("k1", "v11")
 	table.put("k2", 2)
-	fmt.Println(table.get("k1"))
 	fmt.Println(table.get("k2"))
-	table.remove("k2")
 	fmt.Println(table.get("k1"))
+	table.remove("k2")
+	fmt.Println(table.get("k1").Value)
 }
