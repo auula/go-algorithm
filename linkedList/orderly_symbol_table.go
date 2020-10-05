@@ -8,7 +8,7 @@ type Key struct {
 }
 
 // Standard 比较接口 如果要安装key顺序插入就要实现这个接口
-type StandardKey interface {
+type  StandardKey interface {
 	CompareTo(key StandardKey) int // 比较函数
 	Value() int                    // 获取值方法
 }
