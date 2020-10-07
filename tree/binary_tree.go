@@ -3,28 +3,44 @@
 // Author: SDing <deen.job@qq.com>
 // Date: 2020/10/5 - 9:43 下午 - UTC/GMT+08:00
 
-
 // 二叉树 查询树设计实现
 package main
 
 // 树的节点
 type treeNode struct {
-	Key int
-	Value interface{}
-	Left,Right *treeNode
+	Key         int
+	Value       interface{}
+	Left, Right *treeNode
 }
 
-func newTreeNode(key int,value interface{},node ...*treeNode) *treeNode {
+func newTreeNode(key int, value interface{}, node ...*treeNode) *treeNode {
 	//fmt.Printf("%T \n",node)//[]*main.treeNode
 	//fmt.Println(node[0])
-	return &treeNode{Key: key,Value: value}
+	return &treeNode{Key: key, Value: value}
 }
 
 func main() {
-	newTreeNode(1,"v1",nil,nil)
+	newTreeNode(1, "v1", nil, nil)
 }
 
 type BinaryTree struct {
-	Root *treeNode
+	Root   *treeNode
 	Length int
+}
+
+func (t *BinaryTree) Add(k int, v interface{}) {
+	if t.Root == nil {
+		return
+	}
+	if k > t.Root.Left.Key {
+
+	}
+}
+
+func (t *BinaryTree) addLeftNode(node *treeNode) {
+
+}
+
+func (t *BinaryTree) addRightNode(node *treeNode) {
+
 }
