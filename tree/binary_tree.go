@@ -22,13 +22,46 @@ func newTreeNode(key int, value interface{}, node ...*treeNode) *treeNode {
 }
 
 func (n *treeNode) preOrder() {
-	fmt.Println(n) // 前序遍历
+	fmt.Println(n.Key) // 前序遍历
 	if n.Left != nil {
 		n.Left.preOrder()
 	}
 	if n.Right != nil {
 		n.Right.preOrder()
 	}
+}
+
+func (n *treeNode) infixOrder() {
+	if n.Left != nil {
+		n.Left.infixOrder()
+	}
+	fmt.Println(n.Key) // 中序遍历
+	if n.Right != nil {
+		n.Right.infixOrder()
+	}
+}
+func (n *treeNode) afterOrder() {
+	if n.Left != nil {
+		n.Left.afterOrder()
+	}
+	if n.Right != nil {
+		n.Right.afterOrder()
+	}
+	fmt.Println(n.Key) // 后序遍历
+}
+
+func (n *treeNode) setLeft(node *treeNode) {
+	if n.Left.Key < node.Key {
+		n.Left = node
+	}
+	n.Left.setLeft(node)
+}
+
+func (n *treeNode) setRight(node *treeNode) {
+	if n.Right.Key < node.Key {
+		n.Right = node
+	}
+	n.Right.setRight(node)
 }
 
 func main() {
@@ -44,6 +77,10 @@ func main() {
 	n4.Left = n5
 	bt.setRoot(root)
 	bt.preOrder() // 1,3,4,5,2
+	fmt.Println("中序")
+	bt.infixOrder() // 3,1,2,5,4
+	fmt.Println("后序")
+	bt.afterOrder() // 3,2,5,4,1
 }
 
 // BinaryTree 二叉树
@@ -61,5 +98,25 @@ func (bt *BinaryTree) setRoot(root *treeNode) {
 func (bt *BinaryTree) preOrder() {
 	if bt.Root != nil {
 		bt.Root.preOrder()
+	}
+}
+
+// 中序遍历
+func (bt *BinaryTree) infixOrder() {
+	if bt.Root != nil {
+		bt.Root.infixOrder()
+	}
+}
+
+// 后序遍历
+func (bt *BinaryTree) afterOrder() {
+	if bt.Root != nil {
+		bt.Root.afterOrder()
+	}
+}
+
+func (bt *BinaryTree) add(node *treeNode) {
+	if node.Key > bt.Root.Key {
+		bt.add(node)
 	}
 }
