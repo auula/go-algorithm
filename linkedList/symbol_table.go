@@ -74,4 +74,5 @@ func main() {
 	fmt.Println(table.get("k1"))
 	table.remove("k2")
 	fmt.Println(table.get("k1").Value)
+	fmt.Println(table.get("k2"))
 }
