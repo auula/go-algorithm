@@ -13,6 +13,7 @@ func main() {
 	fmt.Println(arr)
 }
 
+// O(n) 适应场景 数据少
 func bubbleSort(arr []int) {
 	// 每轮加去之前也就排序好的一个元素位置
 	// len - 1 是因为
