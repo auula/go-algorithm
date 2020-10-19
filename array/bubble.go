@@ -8,8 +8,9 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{6, 5, 4, 3, 2, 1}
-	bubbleSort(arr)
+	arr := []int{3, 9, -1, 10, 20}
+	//bubbleSort(arr)
+	sort(arr)
 	fmt.Println(arr)
 }
 
@@ -22,6 +23,24 @@ func bubbleSort(arr []int) {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
 			}
+		}
+	}
+}
+
+func sort(arr []int) {
+	var flag bool
+	for i := 0; i < len(arr)-1; i++ {
+		for j := 0; j < len(arr)-1-i; j++ {
+			if arr[j] > arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+				flag = true
+			}
+		}
+		// 优化一次就排好的序的数据情况
+		if !flag {
+			break
+		} else {
+			flag = false
 		}
 	}
 }
