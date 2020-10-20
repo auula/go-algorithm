@@ -10,21 +10,10 @@ import "fmt"
 
 func main() {
 	arr := []int{6, 5, 4, 3, 2, 1}
-	//selectionSort(arr)
+	selectionSort(arr)
+	arr = []int{6, 5, 4, 3, 2, 1}
 	sort(arr)
 	fmt.Println(arr)
-}
-
-func selectionSort(arr []int) {
-	for i := 0; i < len(arr); i++ {
-		min := i
-		for j := len(arr) - 1; j > i; j-- {
-			if arr[j] < arr[min] {
-				min = j
-			}
-		}
-		arr[i], arr[min] = arr[min], arr[i]
-	}
 }
 
 // 选择排序 n(n^2) 因为不是每个元素都需要交换 所有比冒泡快
@@ -39,5 +28,17 @@ func sort(arr []int) {
 				arr[mid], arr[j] = arr[j], arr[mid]
 			}
 		}
+	}
+}
+
+func selectionSort(arr []int) {
+	for i := 0; i < len(arr); i++ {
+		min := i
+		for j := len(arr) - 1; j > i; j-- {
+			if arr[j] < arr[min] {
+				min = j
+			}
+		}
+		arr[i], arr[min] = arr[min], arr[i]
 	}
 }

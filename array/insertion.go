@@ -9,7 +9,8 @@ import "fmt"
 
 func main() {
 	arr := []int{12, 13, 2, 49, 11, 4, 6, 3, 1}
-	insertionSort(arr)
+	//insertionSort(arr)
+	selection(arr)
 	fmt.Println(arr)
 }
 
@@ -20,6 +21,17 @@ func insertionSort(arr []int) {
 				arr[j-1], arr[j] = arr[j], arr[j-1]
 			} else {
 				break
+			}
+		} 
+	}
+}
+
+func selection(arr []int) {
+	for i := 0; i < len(arr)-1; i++ {
+		mid := i
+		for j := i+1; j < len(arr); j++ {
+			if arr[mid] > arr[j] {
+				arr[mid],arr[j] = arr[j],arr[mid]
 			}
 		}
 	}
