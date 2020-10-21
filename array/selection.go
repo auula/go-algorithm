@@ -30,15 +30,3 @@ func sort(arr []int) {
 		}
 	}
 }
-
-func selectionSort(arr []int) {
-	for i := 0; i < len(arr); i++ {
-		min := i
-		for j := len(arr) - 1; j > i; j-- {
-			if arr[j] < arr[min] {
-				min = j
-			}
-		}
-		arr[i], arr[min] = arr[min], arr[i]
-	}
-}
