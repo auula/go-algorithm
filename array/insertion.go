@@ -8,7 +8,7 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{11, 12, 13, 3, 4, 2, 49, 11, 4, 6, 3, 1}
+	arr := []int{11, 12, 13, 3, 4, 2, 49, 11, 4, 6, 3, 1, -1}
 	insertionSort(arr)
 	//selection(arr)
 	fmt.Println(arr)
@@ -25,7 +25,9 @@ func insertionSort(arr []int) {
 			arr[index+1] = arr[index] // 后移动一位和打扑克一样
 			index--                   // 因为刚刚加一了所有减回来记录当前下标
 		}
-		arr[index+1] = insertVal // 加一是因为遍历到有序类别0号元素减一是-1 所有加回来
+		if index+1 != i {
+			arr[index+1] = insertVal // 加一是因为遍历到有序类别0号元素减一是-1 所有加回来
+		}
 	}
 }
 
