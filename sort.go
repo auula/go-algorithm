@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{3, 9, -1, 10, 20}
+	arr := []int{2, 3, 9, 10, 20, 1}
 	insertion(arr)
 	fmt.Println(arr)
 }
