@@ -12,6 +12,7 @@ func main() {
 
 // 希尔排序 O(n^n)
 func shell(arr []int) {
+	// gap = pace = 步伐
 	for gap := len(arr) / 2; gap > 0; gap /= 2 {
 		for i := gap; i < len(arr); i++ {
 			for j := i - gap; j >= 0; j -= gap {
