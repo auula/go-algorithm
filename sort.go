@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	arr := []int{2, 3, 9, 10, 20, 1}
-	insertion(arr)
+	shell(arr)
 	fmt.Println(arr)
 }
 
@@ -37,5 +37,17 @@ func insertion(arr []int) {
 			index--
 		}
 		arr[index+1] = value
+	}
+}
+
+func shell(arr []int) {
+	for pace := len(arr) / 2; pace > 0; pace /= 2 {
+		for i := pace; i < len(arr); i++ {
+			for j := i - pace; j >= 0; j -= pace {
+				if arr[j] > arr[j+pace] {
+					arr[j], arr[j+pace] = arr[j+pace], arr[j]
+				}
+			}
+		}
 	}
 }
