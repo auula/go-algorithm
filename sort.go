@@ -41,7 +41,9 @@ func insertion(arr []int) {
 }
 
 func shell(arr []int) {
+	// 算出每次分组的元素个数和步数
 	for pace := len(arr) / 2; pace > 0; pace /= 2 {
+		// i = index 是下标 每次都在移动下标然后减去步数间隔
 		for i := pace; i < len(arr); i++ {
 			for j := i - pace; j >= 0; j -= pace {
 				if arr[j] > arr[j+pace] {
