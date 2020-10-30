@@ -32,7 +32,7 @@ func quicksort(a []int) []int {
 	// 左右操作下标的指针  一个从头 一个从尾部开始
 	left, right := 0, len(a)-1
 	// 算出来以那个数为基准
-	pivot := len(a) / 2
+	pivot := rand.Int() % len(a)
 	// fmt.Println("pivot=", pivot)
 	// fmt.Println("right=", right)
 	// fmt.Println("left=", left)
