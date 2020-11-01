@@ -10,7 +10,7 @@ func main() {
 
 	slice := generateSlice(20)
 	fmt.Println("\n--- Unsorted --- \n\n", slice)
-	quicksort(slice)
+	sortQuick(slice, 0, len(slice)-1)
 	fmt.Println("\n--- Sorted ---\n\n", slice, "\n")
 }
 
@@ -54,4 +54,42 @@ func quicksort(a []int) []int {
 	quicksort(a[left+1:])
 
 	return a
+}
+
+func sortQuick(arr []int, left, right int) {
+	var l, r = left, right        // 左右下标
+	var pivot = arr[left+right/2] // 中轴值
+	for l < r {
+		// 在中轴的左边一直找到一个大于或者等于pivot的值
+		for arr[l] < pivot {
+			l += 1
+		}
+		// 在中轴的右边一直找到一个小于或者等于pivot的值
+		for arr[r] > pivot {
+			r -= 1
+		}
+		arr[r], arr[l] = arr[l], arr[r]
+		// 说明左边都是小于pivot的值 右边是大于pivot值
+		if l >= r {
+			break
+		}
+		if arr[l] == pivot {
+			r -= 1
+		}
+		if arr[r] == pivot {
+			l += 1
+		}
+		if l == r {
+			l++
+			r--
+		}
+
+	}
+	if left < r {
+		sortQuick(arr, left, r)
+	}
+	if right > l {
+		sortQuick(arr, l, right)
+	}
+
 }
