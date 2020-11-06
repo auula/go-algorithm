@@ -8,7 +8,7 @@ func main() {
 	row := []int{14, 12, 9, 7, 81, 2, 3, 4, 1}
 	// sortShell(arr)
 	// fmt.Println(arr)
-	shellSort(row)
+	simpleShellSort(row)
 	fmt.Println(row)
 }
 
@@ -57,7 +57,7 @@ func shellSort(row []int) {
 	}
 	// 如果增长量大于等于1说明未完成排序
 	for increment >= 1 {
-		// i等于每次步伐和间隔  分左右 有序和无限
+		// i等于每次步伐和间隔 分组的个数 分左右 有序和无限
 		for i := increment; i < len(row); i++ {
 			// j 等于要传入元素的下标 在增长量里面比较元素
 			for j := i; j >= increment; j-- {
@@ -71,5 +71,23 @@ func shellSort(row []int) {
 		}
 		// 继续减小增长量
 		increment /= 2
+	}
+}
+
+func simpleShellSort(arr []int) {
+	n := len(arr)
+	h := 1
+	//寻找合适的间隔h
+	for h < n/3 {
+		h = 3*h + 1
+	}
+	for h >= 1 {
+		// i每轮分组的个数
+		for i := h; i < n; i++ {
+			for j := i; j >= h && arr[j] < arr[j-h]; j -= h {
+				arr[j], arr[j-h] = arr[j-h], arr[j]
+			}
+		}
+		h /= 3
 	}
 }

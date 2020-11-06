@@ -83,3 +83,14 @@ func simpleInsertionSort(row []int) {
 		}
 	}
 }
+func insertSort(arr []int) {
+	n := len(arr)
+	if n < 2 {
+		return
+	}
+	for i := 1; i < n; i++ {
+		for j := i; j > 0 && arr[j] < arr[j-1]; j-- {
+			arr[j], arr[j-1] = arr[j-1], arr[j]
+		}
+	}
+}
