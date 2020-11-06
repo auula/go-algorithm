@@ -30,7 +30,7 @@ func bubbleSort(arr []int) {
 func sort(arr []int) {
 	var flag bool
 	for i := 0; i < len(arr)-1; i++ {
-		// 冒泡是每次相邻的2个元素排
+		// 冒泡是每次相邻的2个元素排 减去已经排好序的元素个数 i其实就是排好序的个数
 		for j := 0; j < len(arr)-1-i; j++ {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]

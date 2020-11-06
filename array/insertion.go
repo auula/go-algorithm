@@ -31,12 +31,54 @@ func insertionSort(arr []int) {
 	}
 }
 
-func selection(arr []int) {
-	for i := 0; i < len(arr)-1; i++ {
-		mid := i
-		for j := i + 1; j < len(arr); j++ {
-			if arr[mid] > arr[j] {
-				arr[mid], arr[j] = arr[j], arr[mid]
+// InsertionSort 插入排序
+func InsertionSort(arr []int) {
+	for i := 1; i < len(arr); i++ {
+		temp := arr[i]
+		j := i
+		for ; j > 0; j-- {
+			if arr[j-1] > temp {
+				arr[j] = arr[j-1]
+			} else {
+				break
+			}
+		}
+		arr[j] = temp
+		fmt.Println(arr)
+	}
+}
+
+func InsertSort(values []int) {
+	length := len(values)
+	if length <= 1 {
+		return
+	}
+
+	for i := 1; i < length; i++ {
+		tmp := values[i] // 从第二个数开始，从左向右依次取数
+		key := i - 1     // 下标从0开始，依次从左向右
+
+		// 每次取到的数都跟左侧的数做比较，如果左侧的数比取的数大，就将左侧的数右移一位，直至左侧没有数字比取的数大为止
+		for key >= 0 && tmp < values[key] {
+			values[key+1] = values[key]
+			key--
+			//fmt.Println(values)
+		}
+
+		// 将取到的数插入到不小于左侧数的位置
+		if key+1 != i {
+			values[key+1] = tmp
+		}
+		//fmt.Println(values)
+	}
+}
+
+// ？？？ 个人感觉像是冒泡排序
+func simpleInsertionSort(row []int) {
+	for i := 1; i < len(row); i++ {
+		for j := i; j > 0; j-- {
+			if row[j] < row[j-1] {
+				row[j], row[j-1] = row[j-1], row[j]
 			}
 		}
 	}

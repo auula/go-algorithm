@@ -5,9 +5,11 @@ import (
 )
 
 func main() {
-	arr := []int{14, 12, 9, 7, 81, 2, 3, 4, 1}
-	sortShell(arr)
-	fmt.Println(arr)
+	row := []int{14, 12, 9, 7, 81, 2, 3, 4, 1}
+	// sortShell(arr)
+	// fmt.Println(arr)
+	shellSort(row)
+	fmt.Println(row)
 }
 
 // 希尔排序 O(n^n)
@@ -47,24 +49,27 @@ func sortShell(arr []int) {
 	}
 }
 
-func ShellSort(a []int) {
-	n := len(a)
-	h := 1
-	for h < n/3 { //寻找合适的间隔h
-		h = 3*h + 1
+func shellSort(row []int) {
+	var increment int
+	// 计算增长量 (常用的固定计算增长量的公式)
+	for increment < len(row)/2 {
+		increment = 2*increment + 1
 	}
-	for h >= 1 {
-		//将数组变为间隔h个元素有序
-		for i := h; i < n; i++ {
-			//间隔h插入排序
-			for j := i; j >= h && a[j] < a[j-h]; j -= h {
-				swap(a, j, j-h)
+	// 如果增长量大于等于1说明未完成排序
+	for increment >= 1 {
+		// i等于每次步伐和间隔  分左右 有序和无限
+		for i := increment; i < len(row); i++ {
+			// j 等于要传入元素的下标 在增长量里面比较元素
+			for j := i; j >= increment; j-- {
+				if row[j-increment] > row[j] {
+					row[j-increment], row[j] = row[j], row[j-increment]
+				} else {
+					// 说明找到了合适的位置跳出本次
+					break
+				}
 			}
 		}
-		h /= 3
+		// 继续减小增长量
+		increment /= 2
 	}
-}
-
-func swap(slice []int, i int, j int) {
-	slice[i], slice[j] = slice[j], slice[i]
 }

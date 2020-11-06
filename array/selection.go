@@ -10,14 +10,14 @@ import "fmt"
 
 func main() {
 	arr := []int{6, 5, 4, 3, 2, 1}
-	selectionSort(arr)
+	sortSelection(arr)
 	arr = []int{6, 5, 4, 3, 2, 1}
 	sort(arr)
 	fmt.Println(arr)
 }
 
 // 选择排序 O(n^2) 因为不是每个元素都需要交换 所有比冒泡快
-func sort(arr []int) {
+func sortSelection(arr []int) {
 	// 这里的减一是因为需要通过下标方法元素 元素下标是从0开始的
 	for i := 0; i < len(arr)-1; i++ {
 		mid := i
