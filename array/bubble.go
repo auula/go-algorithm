@@ -16,12 +16,10 @@ func main() {
 	fmt.Println(arr)
 }
 
-// O(n^2) 适应场景 数据少 冒泡比较忙
-func bubbleSort(arr []int) {
-	// 每轮加去之前也就排序好的一个元素位置
-	// len - 1 是因为
-	for i := len(arr) - 1; i > 0; i-- {
-		for j := 0; j < i; j++ {
+func Bubble(arr []int) {
+	for i := 0; i < len(arr); i++ {
+		// 冒泡是每次相邻的2个元素排
+		for j := 0; j < len(arr)-1-i; j++ {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
 			}

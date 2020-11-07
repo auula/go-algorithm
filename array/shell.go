@@ -8,7 +8,7 @@ func main() {
 	row := []int{14, 12, 9, 7, 81, 2, 3, 4, 1}
 	// sortShell(arr)
 	// fmt.Println(arr)
-	simpleShellSort(row)
+	Shell(row)
 	fmt.Println(row)
 }
 
@@ -21,6 +21,27 @@ func shell(arr []int) {
 				if arr[j] > arr[j+gap] {
 					arr[j], arr[j+gap] = arr[j+gap], arr[j]
 				}
+			}
+		}
+	}
+}
+
+// 希尔排序 O(n^n)
+func Shell(arr []int) {
+	var pervIndex, current int
+	// 1.先把原数据安装自定义步长分组
+	for gap := len(arr) / 2; gap > 0; gap /= 2 {
+		// 2.然后分好组的数据进行选择排序
+		for i := gap; i < len(arr); i++ {
+			// 希尔排序
+			pervIndex = i - gap
+			current = arr[i]
+			for pervIndex >= 0 && arr[pervIndex] > current {
+				arr[pervIndex+1] = arr[pervIndex]
+				pervIndex--
+			}
+			if pervIndex+1 != i {
+				arr[pervIndex+1] = current
 			}
 		}
 	}
