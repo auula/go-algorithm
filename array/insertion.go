@@ -9,7 +9,7 @@ import "fmt"
 
 func main() {
 	arr := []int{11, 12, 13, 3, 4, 2, 49, 11, 4, 6, 3, 1, -1}
-	insertionSort(arr)
+	InsertionSort(arr)
 	//selection(arr)
 	fmt.Println(arr)
 }
@@ -33,18 +33,17 @@ func insertionSort(arr []int) {
 
 // InsertionSort 插入排序
 func InsertionSort(arr []int) {
+	var pervIndex, current int
 	for i := 1; i < len(arr); i++ {
-		temp := arr[i]
-		j := i
-		for ; j > 0; j-- {
-			if arr[j-1] > temp {
-				arr[j] = arr[j-1]
-			} else {
-				break
-			}
+		pervIndex = i - 1
+		current = arr[i]
+		for pervIndex >= 0 && arr[pervIndex] > current {
+			arr[pervIndex+1] = arr[pervIndex]
+			pervIndex--
 		}
-		arr[j] = temp
-		fmt.Println(arr)
+		if pervIndex+1 != i {
+			arr[pervIndex+1] = current
+		}
 	}
 }
 

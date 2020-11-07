@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	arr := []int{2, 3, 9, 10, 20, 1}
-	shell(arr)
+	shellSort(arr)
 	fmt.Println(arr)
 }
 
@@ -51,5 +51,23 @@ func shell(arr []int) {
 				}
 			}
 		}
+	}
+}
+
+func shellSort(row []int) {
+	var increment int = 1
+	// 取第一次的分组 步长
+	for increment < len(row)/2 {
+		increment = increment*2 + 1
+	}
+	for increment >= 1 {
+		for i := increment; i < len(row); i++ {
+			for j := i; j >= increment; j-- {
+				if row[j] < row[j-increment] {
+					row[j], row[j-increment] = row[j-increment], row[j]
+				}
+			}
+		}
+		increment /= 2
 	}
 }
