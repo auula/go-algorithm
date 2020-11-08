@@ -37,11 +37,11 @@ func Shell(arr []int) {
 			pervIndex = i - gap
 			current = arr[i]
 			for pervIndex >= 0 && arr[pervIndex] > current {
-				arr[pervIndex+1] = arr[pervIndex]
-				pervIndex--
+				arr[pervIndex+gap] = arr[pervIndex]
+				pervIndex -= gap
 			}
-			if pervIndex+1 != i {
-				arr[pervIndex+1] = current
+			if pervIndex+gap != i {
+				arr[pervIndex+gap] = current
 			}
 		}
 	}

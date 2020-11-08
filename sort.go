@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	arr := generateNumbers(100000)
+	arr := generateNumbers(100000000)
 	//fmt.Println(arr)
 	shell(arr)
 	//fmt.Println(arr)
@@ -57,10 +57,10 @@ func shell(arr []int) {
 			current = arr[i]
 			pervIndex = i - gap
 			for pervIndex >= 0 && current < arr[pervIndex] {
-				arr[pervIndex+1] = arr[pervIndex]
-				pervIndex--
+				arr[pervIndex+gap] = arr[pervIndex]
+				pervIndex -= gap
 			}
-			arr[pervIndex+1] = current
+			arr[pervIndex+gap] = current
 		}
 	}
 }
