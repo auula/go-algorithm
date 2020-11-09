@@ -9,8 +9,7 @@ func main() {
 
 	arr := generateNumbers(1000000)
 	//fmt.Println(arr)
-	shell(arr)
-	//fmt.Println(factorial(5))
+	mergeSort(arr) // 0.752 seconds
 
 }
 
@@ -71,6 +70,37 @@ func factorial(n int) int {
 		return 1
 	}
 	return n * factorial(n-1)
+}
+
+func mergeSort(arr []int) []int {
+	var result []int
+	if len(arr) < 2 {
+		return arr
+	}
+	middle := len(arr) / 2
+	// 注意这是切片 切取的时候是包左 不包右
+	left := arr[:middle]
+	right := arr[middle:]
+	return func(left, right []int) []int {
+		for len(left) != 0 && len(right) != 0 {
+			if left[0] <= right[0] {
+				result = append(result, left[0])
+				left = left[1:]
+			} else {
+				result = append(result, right[0])
+				right = right[1:]
+			}
+		}
+		for len(left) != 0 {
+			result = append(result, left[0])
+			left = left[1:]
+		}
+		for len(right) != 0 {
+			result = append(result, right[0])
+			right = right[1:]
+		}
+		return result
+	}(mergeSort(left), mergeSort(right))
 }
 
 func generateNumbers(size int) []int {
