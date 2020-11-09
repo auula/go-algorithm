@@ -7,10 +7,10 @@ import (
 
 func main() {
 
-	arr := generateNumbers(100000000)
+	arr := generateNumbers(1000000)
 	//fmt.Println(arr)
 	shell(arr)
-	//fmt.Println(arr)
+	//fmt.Println(factorial(5))
 
 }
 
@@ -63,6 +63,14 @@ func shell(arr []int) {
 			arr[pervIndex+gap] = current
 		}
 	}
+}
+
+// https://zh.wikipedia.org/wiki/%E9%9A%8E%E4%B9%98
+func factorial(n int) int {
+	if n == 1 {
+		return 1
+	}
+	return n * factorial(n-1)
 }
 
 func generateNumbers(size int) []int {
