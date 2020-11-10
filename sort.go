@@ -72,6 +72,33 @@ func factorial(n int) int {
 	return n * factorial(n-1)
 }
 
+// func mergeSort(arr []int) []int {
+// 	var result []int
+// 	if len(arr) < 2 {
+// 		return arr
+// 	}
+// 	middle := len(arr) / 2
+// 	// 注意这是切片 切取的时候是包左 不包右
+// 	left := arr[:middle]
+// 	right := arr[middle:]
+// 	return func(left, right []int) []int {
+// 		// index
+// 		l, r := 0, 0
+// 		for l < len(left) && r < len(right) {
+// 			if left[l] < right[r] {
+// 				result = append(result, left[l])
+// 				l++
+// 			} else {
+// 				result = append(result, right[r])
+// 				r++
+// 			}
+// 		}
+// 		result = append(result, left[l:]...)
+// 		result = append(result, right[r:]...)
+// 		return result
+// 	}(mergeSort(left), mergeSort(right))
+// }
+
 func mergeSort(arr []int) []int {
 	var result []int
 	if len(arr) < 2 {
@@ -82,19 +109,24 @@ func mergeSort(arr []int) []int {
 	left := arr[:middle]
 	right := arr[middle:]
 	return func(left, right []int) []int {
-		// index
-		l, r := 0, 0
-		for l < len(left) && r < len(right) {
-			if left[l] < right[r] {
-				result = append(result, left[l])
-				l++
+		// 分组不能保证左右各组数据个数是一样的
+		for len(left) != 0 && len(right) != 0 {
+			if left[0] <= right[0] {
+				result = append(result, left[0])
+				left = left[1:]
 			} else {
-				result = append(result, right[r])
-				r++
+				result = append(result, right[0])
+				right = right[1:]
 			}
 		}
-		result = append(result, left[l:]...)
-		result = append(result, right[r:]...)
+		if len(left) != 0 {
+			result = append(result, left[:]...)
+
+		}
+		if len(right) != 0 {
+			result = append(result, right[:]...)
+
+		}
 		return result
 	}(mergeSort(left), mergeSort(right))
 }
