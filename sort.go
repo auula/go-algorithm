@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	arr := generateNumbers(100)
+	arr := generateNumbers(10)
 	//fmt.Println(arr)
 	mergeSort(arr) // 0.752 seconds
 
