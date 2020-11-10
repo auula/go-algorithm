@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	arr := generateNumbers(1000000)
+	arr := generateNumbers(100)
 	//fmt.Println(arr)
 	mergeSort(arr) // 0.752 seconds
 
@@ -82,23 +82,19 @@ func mergeSort(arr []int) []int {
 	left := arr[:middle]
 	right := arr[middle:]
 	return func(left, right []int) []int {
-		for len(left) != 0 && len(right) != 0 {
-			if left[0] <= right[0] {
-				result = append(result, left[0])
-				left = left[1:]
+		// index
+		l, r := 0, 0
+		for l < len(left) && r < len(right) {
+			if left[l] < right[r] {
+				result = append(result, left[l])
+				l++
 			} else {
-				result = append(result, right[0])
-				right = right[1:]
+				result = append(result, right[r])
+				r++
 			}
 		}
-		for len(left) != 0 {
-			result = append(result, left[0])
-			left = left[1:]
-		}
-		for len(right) != 0 {
-			result = append(result, right[0])
-			right = right[1:]
-		}
+		result = append(result, left[l:]...)
+		result = append(result, right[r:]...)
 		return result
 	}(mergeSort(left), mergeSort(right))
 }
