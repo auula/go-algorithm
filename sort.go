@@ -7,10 +7,10 @@ import (
 
 func main() {
 
-	arr := generateNumbers(10)
+	arr := generateNumbers(100000000)
 	//fmt.Println(arr)
-	mergeSort(arr) // 0.752 seconds
-
+	quick(arr, 0, len(arr)-1)
+	//fmt.Println(arr)
 }
 
 func bubble(arr []int) {
@@ -129,6 +129,30 @@ func mergeSort(arr []int) []int {
 		}
 		return result
 	}(mergeSort(left), mergeSort(right))
+}
+
+func quick(arr []int, left, right int) {
+	if left >= right {
+		return
+	}
+	var pivot int
+	pivot = arr[left]
+	L, R := left, right
+	for left < right {
+		for left < right && arr[right] >= pivot {
+			// 如果右边大于中间值就继续向前移动比较
+			right--
+		}
+		arr[left] = arr[right]
+		for left < right && arr[left] <= pivot {
+			left++
+		}
+		arr[right] = arr[left]
+	}
+	// 结束了就是中间位置
+	arr[left] = pivot
+	quick(arr, L, right-1)
+	quick(arr, right+1, R)
 }
 
 func generateNumbers(size int) []int {
