@@ -7,9 +7,9 @@ import (
 
 func main() {
 
-	arr := generateNumbers(100000000)
+	arr := generateNumbers(100000)
 	//fmt.Println(arr)
-	quick(arr, 0, len(arr)-1)
+	shell(arr)
 	//fmt.Println(arr)
 }
 
